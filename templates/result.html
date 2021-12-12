@@ -1,11 +1,29 @@
 <html>
 <head>
-	<title> Home Page </title>
+<style>
+.lineDiv {
+  border: 1px outset black;  
+  background-color: black;
+  text-align: center;
+}
+.defDiv {
+  border: 1px outset black;  
+  background-color: white;
+  text-align: left;
+  padding: 20.5rem;
+}
+
+</style>
+	<title> Result </title>
 	</head>
 	<body>
-		<h1>{{word}}</h1>
-		<h2>{{type}}</h2>
-		<h3>{{pron}}</h3>
-		<p>{{content}}</p>
+	<div class = "defDiv">
+		<p style="font-family:'Libre Baskerville';font-size:5vw"><b>{{word}}</b></p>
+		<p style="font-family:'Noto Serif';font-size:2vw"><i>{{type}}</i></p>
+		<p style="font-family:'Open Sans Light';font-size:1.5vw">[{{pron}}]</p>
+		<div class="lineDiv"></div>
+		
+		<p style="font-family:'Libre Baskerville';font-size:1.5vw">{{content}}</p>
+	</div>
 	</body>
 </html>
