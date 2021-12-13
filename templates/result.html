@@ -13,11 +13,19 @@
   padding: 20.5rem;
 }
 
+.backButton {
+  position:relative;
+
+  left:10px;
+
+}
+
 </style>
+
 	<title> Result </title>
 	</head>
 	<body>
-	<div class = "defDiv">
+	<div class = "defDiv" id="capture">
 		<p style="font-family:'Libre Baskerville';font-size:5vw"><b>{{word}}</b></p>
 		<p style="font-family:'Noto Serif';font-size:2vw"><i>{{type}}</i></p>
 		<p style="font-family:'Open Sans Light';font-size:1.5vw">[{{pron}}]</p>
@@ -25,5 +33,30 @@
 		
 		<p style="font-family:'Libre Baskerville';font-size:1.5vw">{{content}}</p>
 	</div>
+ <script src=
+"https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+  </script>
+<script type="text/javascript">
+  
+        // Define the function 
+        // to screenshot the div
+        function Screenshot() {
+		window.scrollTo(0,0)
+            let div =
+                document.getElementById('capture');
+  
+            // Use the html2canvas
+            // function to take a screenshot
+            // and append it
+            // to the output div
+            html2canvas(div).then(
+                canvas => {
+     window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
+});
+                
+        }
+    </script>
+<button onclick="Screenshot()">Open as Image</button>
+<button onclick="location.href = '/'"; id = 'backButton' >Back</button>
 	</body>
 </html>
