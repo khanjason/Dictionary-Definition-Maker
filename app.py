@@ -28,7 +28,9 @@ def queryDictionary():
                 response.raise_for_status()
     		# access JSOn content
                 jsonResponse = response.json()[0]
-                
+                if "title" in jsonResponse.keys():
+                    
+                    return render_template("error.html")
                 word = jsonResponse["word"]
                 
                 meaning = jsonResponse["meanings"][0]
@@ -43,8 +45,10 @@ def queryDictionary():
 
         except HTTPError as http_err:
                 print(f'HTTP error occurred: {http_err}')
+                return render_template("error.html")
         except Exception as err:
                 print(f'Other error occurred: {err}')
+                return render_template("error.html")
     else:
     	return render_template("query.html")
 
